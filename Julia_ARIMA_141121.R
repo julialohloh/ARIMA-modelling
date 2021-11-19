@@ -45,13 +45,14 @@ acf(y, plot = FALSE)
 ggAcf(y)
 pacf(y)
 
-
+#------------------------------------------------------------------------------------------------------------------------------------------------------
 #Is there cyclicity? https://afit-r.github.io/ts_exploration
 #or white noise? dotted blue lines represent the 95% threshold.
 #If there are one or more large spikes outside these bounds, or if more than 5% of spikes are outside these bounds, then the series is probably not white noise.
 #Some signals for forecasting
 #Ljung-Box test, which tests whether any of a group of autocorrelations of a time series are different from zero
 #When the Ljung Box test is applied to the residuals of an ARIMA model, the degrees of freedom h must be equal to m-p-q, where p and q are the number of parameters in the ARIMA(p,q) model
+#------------------------------------------------------------------------------------------------------------------------------------------------------
 Box.test(y, lag = 24, fitdf = 0, type = "Lj")
 
 plot(stl(y, s.window = "periodic"))
