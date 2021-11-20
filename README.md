@@ -21,7 +21,9 @@ As ARIMA requires (a) Periods to lag, (2) amount of differencing required to tra
 4) Test for seasonlity using (a) isSeasonal, (b) Kruskal Wallis and (c) Friedman rank test
 5) Augment Dickey-Fuller test to test is data is stationary
 
-Although data is shown to be not stationary, we use auto arima for forecasting. The results show:
+Although data is shown to be not stationary, we use auto arima (where optimal p, d, and q values suitable for the data set will be generated) for forecasting. The results show:
 1) ARIMA(1,0,2)(0,0,1)[12] with non-zero mean was used for the data
 2) The ACF and PACF plots show that there are lack of correlation in residuals, which mean forecast is optimal
-3) Coefficiant test shows that the variables fom ARIMA is 
+3) Check residuals tests (Ljung box test) which is use to determine forecast accuracy shows that p-values are all greater than 0.05 and none of the correlations for the autocorrelation function of the residuals are significant. Model meets the assumption that the residuals are independent/ white noise
+4) Coefficient test shows that the autoregressive terms (p, q values) has a p-value that is less than the significance level of 0.05, showing that the coefficient for the autoregressive term is statistically significant and the term should be kept in the model.
+5) Root means squared error (RMSE) values are quite high which means that the model may not predict the data accurately.
